@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Popup from 'reactjs-popup'
+import moment from 'moment'
 
 const Reservations = ({data}) => {
 	console.log('displaying reservations')
@@ -23,7 +24,7 @@ const Reservations = ({data}) => {
 						<tr key={index}>
 							<td>{res.guestInfo[0].name}</td>
 							<td>{res.roomDetails.Name}</td>
-							<td>{res.startDate} - {res.endDate}</td>
+							<td>{moment(res.startDate, 'MM-DD-YYYY').format('MMM Do, YYYY')} - {moment(res.endDate, 'MM-DD-YYYY').format('MMM Do, YYYY')}</td>
 							<td>
 								<Popup trigger={
 									<button>
